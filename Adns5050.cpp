@@ -82,7 +82,9 @@ unsigned char Adns5050::read (const ADNS_5050_reg address)
 #endif
 	}
 
+	pinMode(MOSI, INPUT);
 	recv = SPI.transfer((unsigned char)0);
+	pinMode(MOSI, OUTPUT);
 #ifdef ADNS_50x0_DEBUG
 	Serial.print("ADNS.SDIO >> 0x");
 	Serial.println(recv, HEX);
